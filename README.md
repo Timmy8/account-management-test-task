@@ -1,3 +1,5 @@
+# Test-task WEB application "Управление счётом"
+
 Задание было выполнено с использованием Spring boot, Hibernate, PostgreSQL(в docker контейнере), Spring Security, Spring MVC и шаблонизатора представлений Thymeleaf.
 Приложение было написано используя стек указанный в ТЗ, кроме частей, где использование дополнительных инструментов было необходимо. 
 
@@ -10,7 +12,7 @@ Docker - [Link](https://www.docker.com/)
 
 1) Клонируйте репозиторий:
 
-```sh git clone https://github.com/Timmy8/account-management-test-task.git```
+```git clone https://github.com/Timmy8/account-management-test-task.git```
 
 2) Перейдите в каталог приложения:
 
