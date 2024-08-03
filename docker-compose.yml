@@ -1,0 +1,27 @@
+services:
+  postgres_db:
+    image: postgres:16-alpine
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: account_management
+      POSTGRES_USER: developer
+      POSTGRES_PASSWORD: developer
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres_db:5432/account_management
+      SPRING_DATASOURCE_USERNAME: developer
+      SPRING_DATASOURCE_PASSWORD: developer
+    depends_on:
+      - postgres_db
+    ports:
+      - '8080:8080'
+
+volumes:
+  postgres-data:

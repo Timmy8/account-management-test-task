@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin page</title>
+</head>
+<body>
+    <h2>Hello <span th:text="${username}"></span>!</h2>
+    <form method="post" th:action="@{/logout}"><input type="submit" value="Logout" style="color:red;"/></form>
+
+    <div>
+        <div th:each="account:${allUsers}" style="padding-top: 15px; width: 50%;">
+            <p style="margin: 0;"       >username:   <strong><span th:text="${account.username}"></span></strong></p>
+            <p style="margin-top: 5px;" >blocked:    <strong><span th:text="${account.blocked}" ></span></strong></p>
+
+            <div style="display:flex; float:left; width:100%; padding-bottom: 20px;">
+                <form method="post" th:action="@{admin/block(username=${account.username})}"                            ><input type="submit" value="Block"  /></form>
+                <form method="post" th:action="@{admin/unblock(username=${account.username})}" style="padding-left:5px;"><input type="submit" value="Unblock"/></form>
+            </div>
+            <hr>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User page</title>
+</head>
+<body>
+    <h2>Hello <span th:text="${username}"></span>!</h2>
+    <form method="post" th:action="@{/logout}"><input type="submit" value="Logout" style="color:red;"/></form>
+
+    <p><strong>Your balance: <span th:text="${balance}"></span></strong></p>
+
+    <div style="display:flex; float:left;">
+        <form method="post" th:action="@{user/deposit}"  style="padding-top:5x;">
+            <p><input type="text" th:name="amount" placeholder="Enter amount"/></p>
+            <input type="submit" value="Deposit"/>
+        </form>
+        <form method="post" th:action="@{user/withdraw}" style="padding-left:5px;">
+            <p><input type="text" th:name="amount" placeholder="Enter amount"/></p>
+            <input type="submit" value="Withdraw"/>
+        </form>
+    </div>
+</body>
+</html>
